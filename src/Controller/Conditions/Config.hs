@@ -8,31 +8,31 @@ import           System.Directory
 import CombinedEnvironment
 import Model.ProtectedModel
 
-installHandlers :: CRef -> IO()
-installHandlers cref = do
-  pm <- fmap model $ readIORef cref
-  onEvent pm Initialised      $ conditionRead cref
-  onEvent pm SenderChanged    $ conditionSave cref
-  onEvent pm AccountIdChanged $ conditionSave cref
-  onEvent pm PincodeChanged   $ conditionSave cref
+installHandlers :: CEnv -> IO()
+installHandlers cenv = do
+  let pm = model cenv
+  onEvent pm Initialised      $ conditionRead cenv
+  onEvent pm SenderChanged    $ conditionSave cenv
+  onEvent pm AccountIdChanged $ conditionSave cenv
+  onEvent pm PincodeChanged   $ conditionSave cenv
 
-conditionSave :: CRef -> IO()
-conditionSave cref = void $ E.handle (anyway (return ())) $ do
+conditionSave :: CEnv -> IO()
+conditionSave cenv = void $ E.handle (anyway (return ())) $ do
   dir <- getAppUserDataDirectory "diamondcard-sms"
   createDirectoryIfMissing True dir
   let file = dir </> "config"
-  pm <- fmap model $ readIORef cref
+  let pm   = model cenv
   acc  <- getAccountId pm
   pin  <- getPincode   pm
   from <- getSender    pm
   writeFile file $ show (acc, pin, from)
 
-conditionRead :: CRef -> IO()
-conditionRead cref = void $ E.handle (anyway (return ())) $ do
+conditionRead :: CEnv -> IO()
+conditionRead cenv = void $ E.handle (anyway (return ())) $ do
   dir <- getAppUserDataDirectory "diamondcard-sms"
   let file = dir </> "config"
 
-  pm <- fmap model $ readIORef cref
+  let pm = model cenv
   c  <- readFile file
   let [((acc, pin, from), _)] = reads c
   setAccountId pm acc

@@ -10,16 +10,16 @@ import CombinedEnvironment
 import View
 import View.MainWindow.Objects
 
-installHandlers :: CRef -> IO()
-installHandlers cref = void $ do
- icon <- trayIcon . mainWindowBuilder . view =<< readIORef cref
- icon `on` statusIconActivate $ condition cref
+installHandlers :: CEnv -> IO()
+installHandlers cenv = void $ do
+ icon <- trayIcon $ mainWindowBuilder $ view cenv
+ icon `on` statusIconActivate $ condition cenv
 
-condition :: CRef -> IO()
-condition cref = onViewAsync $ do
+condition :: CEnv -> IO()
+condition cenv = onViewAsync $ do
 
   -- UI elements
-  ui <- fmap (mainWindowBuilder . view) $ readIORef cref
+  let ui = mainWindowBuilder $ view cenv
 
   -- Window, hidden if currently shown, shown if currently hidden
   mw            <- mainWindow ui

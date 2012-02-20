@@ -11,22 +11,22 @@ import Model.ProtectedModel
 import View
 import View.MainWindow.Objects
 
-installHandlers :: CRef -> IO()
-installHandlers cref = void $ do
- send <- sendBtn . mainWindowBuilder . view =<< readIORef cref
- send `onClicked` condition cref
+installHandlers :: CEnv -> IO()
+installHandlers cenv = void $ do
+ send <- sendBtn $ mainWindowBuilder $ view cenv
+ send `onClicked` condition cenv
 
-condition :: CRef -> IO()
-condition cref = onViewAsync $ void $ do
+condition :: CEnv -> IO()
+condition cenv = onViewAsync $ void $ do
 
   -- Hide the window if it's shown
-  mw <- mainWindow . mainWindowBuilder . view =<< readIORef cref
+  mw <- mainWindow $ mainWindowBuilder $ view cenv
   isWindowShown <- get mw widgetVisible
   when isWindowShown $ widgetHide mw
 
   -- Send the message asynchronously
   forkIO $ do 
-    pm <- fmap model $ readIORef cref
+    let pm = model cenv
 
     setStatus pm StatusSending
 

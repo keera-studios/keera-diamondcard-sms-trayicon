@@ -26,4 +26,4 @@ import Model.Model
 import Model.ReactiveModel.ModelEvents
 import qualified Control.Concurrent.Model.ReactiveModel as GRM
 
-type ReactiveModel = GRM.ReactiveModel Model ModelEvent
+type ReactiveModel = GRM.ReactiveModel Model ModelEvent (IO ())

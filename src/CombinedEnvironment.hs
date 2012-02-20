@@ -1,10 +1,8 @@
 module CombinedEnvironment
-   ( CRef
-   , view
+   ( view
+   , CEnv
    , GEnv.model
-   , GEnv.createCRef
-   , GEnv.readIORef
-   , GEnv.writeIORef
+   , GEnv.createCEnv
    , updateView
    , onViewAsync
    )
@@ -19,7 +17,6 @@ import Model.ReactiveModel.ModelEvents
 import Model.Model
 
 type CEnv = GEnv.CEnv View Model ModelEvent
-type CRef = GEnv.CRef View Model ModelEvent
 
 view :: CEnv -> View
 view = GtkView.getGUI . GEnv.view

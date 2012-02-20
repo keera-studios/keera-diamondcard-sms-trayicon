@@ -26,22 +26,22 @@ type Setter a = ProtectedModel -> a -> IO()
 type Getter a = ProtectedModel -> IO a
 
 -- Install the handler for a field that has a setter and a getter
-installHandlers :: [ ModelEvent ] -> Accessor Entry -> Setter String -> Getter String -> CRef -> IO()
-installHandlers evs entryF setter getter cref = do
+installHandlers :: [ ModelEvent ] -> Accessor Entry -> Setter String -> Getter String -> CEnv -> IO()
+installHandlers evs entryF setter getter cenv = do
   -- Get view and model
-  (vw, pm) <- fmap (view &&& model) $ readIORef cref
+  let (vw, pm) = (view &&& model) cenv
 
   -- Get view element
   entry <- entryF $ mainWindowBuilder vw
-  entry `onEditableChanged` condition cref VM entryF setter getter
+  entry `onEditableChanged` condition cenv VM entryF setter getter
 
   -- Install handler
-  mapM_ (\ev -> onEvent pm ev (condition cref MV entryF setter getter)) evs
+  mapM_ (\ev -> onEvent pm ev (condition cenv MV entryF setter getter)) evs
 
 -- | Enforces the condition
-condition :: CRef -> ConditionDirection -> Accessor Entry -> Setter String -> Getter String ->IO()
-condition cref cd entryF setter getter = onViewAsync $ do
-  (vw, pm) <- fmap (view &&& model) $ readIORef cref
+condition :: CEnv -> ConditionDirection -> Accessor Entry -> Setter String -> Getter String ->IO()
+condition cenv cd entryF setter getter = onViewAsync $ do
+  let (vw, pm) = (view &&& model) cenv
   entry            <- entryF $ mainWindowBuilder vw
   t                <- get entry entryText
   curModelValue    <- getter pm

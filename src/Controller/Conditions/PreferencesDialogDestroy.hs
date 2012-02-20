@@ -9,7 +9,7 @@ import CombinedEnvironment
 import View
 import View.MainWindow.Objects
 
-installHandlers :: CRef -> IO()
-installHandlers cref = void $ do
- dg <- preferencesDialog . mainWindowBuilder . view =<< readIORef cref
+installHandlers :: CEnv -> IO()
+installHandlers cenv = void $ do
+ dg <- preferencesDialog $ mainWindowBuilder $ view cenv
  dg `on` deleteEvent $ liftIO (widgetHide dg) >> return True

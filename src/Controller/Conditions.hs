@@ -26,18 +26,18 @@ import qualified Controller.Conditions.SmsWindow                as SmsWindow
 import qualified Controller.Conditions.Status                   as Status
 import qualified Controller.Conditions.Quit                     as Quit
 
-installHandlers :: CRef -> IO()
-installHandlers cref = do
-  Config.installHandlers                   cref
-  AccountID.installHandlers                cref
-  Pincode.installHandlers                  cref
-  Sender.installHandlers                   cref
-  PreferencesDialog.installHandlers        cref
-  PreferencesDialogDestroy.installHandlers cref
-  PopupMenu.installHandlers                cref
-  SmsWindow.installHandlers                cref
-  Destination.installHandlers              cref
-  Message.installHandlers                  cref
-  Quit.installHandlers                     cref
-  Send.installHandlers                     cref
-  Status.installHandlers                   cref
+installHandlers :: CEnv -> IO()
+installHandlers cenv = do
+  Config.installHandlers                   cenv
+  AccountID.installHandlers                cenv
+  Pincode.installHandlers                  cenv
+  Sender.installHandlers                   cenv
+  PreferencesDialog.installHandlers        cenv
+  PreferencesDialogDestroy.installHandlers cenv
+  PopupMenu.installHandlers                cenv
+  SmsWindow.installHandlers                cenv
+  Destination.installHandlers              cenv
+  Message.installHandlers                  cenv
+  Quit.installHandlers                     cenv
+  Send.installHandlers                     cenv
+  Status.installHandlers                   cenv

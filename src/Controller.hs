@@ -3,9 +3,6 @@
 -- initialises program.
 module Controller where
 
--- External imports
-import Data.IORef
-
 -- Uncomment the following line if you need to capture errors
 -- import System.Glib.GError
 
@@ -29,13 +26,13 @@ startController = do
     initView
 
     -- Create an empty model
-    cref <- createCRef emptyBM
+    cenv <- createCEnv emptyBM
 
     -- Install the model and view handlers
-    installHandlers cref
+    installHandlers cenv
   
     -- Modify the system initialisation
-    readIORef cref >>= initialiseSystem.model
+    initialiseSystem $ model cenv
 
     -- Run the view
     startView

@@ -11,17 +11,17 @@ import Model.ProtectedModel
 import View
 import View.MainWindow.Objects
 
-installHandlers :: CRef -> IO()
-installHandlers cref = void $ do
- pm <- fmap model $ readIORef cref
- onEvent pm StatusChanged $ condition cref
+installHandlers :: CEnv -> IO()
+installHandlers cenv = void $ do
+ let pm = model cenv
+ onEvent pm StatusChanged $ condition cenv
 
- icon <- trayIcon . mainWindowBuilder . view =<< readIORef cref
- icon `on` statusIconActivate $ conditionClick cref
+ icon <- trayIcon $ mainWindowBuilder $ view cenv
+ icon `on` statusIconActivate $ conditionClick cenv
 
-condition :: CRef -> IO()
-condition cref = onViewAsync $ do
-  (vw, pm) <- fmap (view &&& model) $ readIORef cref
+condition :: CEnv -> IO()
+condition cenv = onViewAsync $ do
+  let (vw, pm) = (view &&& model) cenv
   icon     <- trayIcon $ mainWindowBuilder vw 
   status   <- getStatus pm
 
@@ -30,9 +30,9 @@ condition cref = onViewAsync $ do
     statusIconSetFromStock icon stockId
     statusIconSetTooltip   icon tooltip
 
-conditionClick :: CRef -> IO()
-conditionClick cref = onViewAsync $ void $ do
-  pm <- fmap model $ readIORef cref
+conditionClick :: CEnv -> IO()
+conditionClick cenv = onViewAsync $ void $ do
+  let pm = model cenv
   status <- getStatus pm
 
   when (status `elem` [ StatusSentOk, StatusSentWrong ]) $ 

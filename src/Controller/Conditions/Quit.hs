@@ -8,7 +8,7 @@ import CombinedEnvironment
 import View
 import View.MainWindow.Objects
 
-installHandlers :: CRef -> IO()
-installHandlers cref = void $ do
- menu <- mainMenuQuit . mainWindowBuilder . view =<< readIORef cref
+installHandlers :: CEnv -> IO()
+installHandlers cenv = void $ do
+ menu <- mainMenuQuit $ mainWindowBuilder $ view cenv
  menu `on` menuItemActivate $ mainQuit

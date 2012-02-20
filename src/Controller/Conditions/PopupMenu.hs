@@ -8,14 +8,14 @@ import CombinedEnvironment
 import View
 import View.MainWindow.Objects
 
-installHandlers :: CRef -> IO()
-installHandlers cref = void $ do
-  icon <- trayIcon . mainWindowBuilder . view =<< readIORef cref
-  icon `on` statusIconPopupMenu $ condition cref
+installHandlers :: CEnv -> IO()
+installHandlers cenv = void $ do
+  icon <- trayIcon $ mainWindowBuilder $ view cenv
+  icon `on` statusIconPopupMenu $ condition cenv
 
-condition :: CRef -> Maybe MouseButton -> TimeStamp -> IO()
-condition cref m t = do
-  ui <- fmap (mainWindowBuilder . view) $ readIORef cref
+condition :: CEnv -> Maybe MouseButton -> TimeStamp -> IO()
+condition cenv m t = do
+  let ui = mainWindowBuilder $ view cenv
 
   mw   <- mainWindow ui
   menu <- mainMenu ui

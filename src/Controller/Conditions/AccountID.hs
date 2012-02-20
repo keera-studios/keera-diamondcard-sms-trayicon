@@ -5,7 +5,7 @@ import Model.ProtectedModel
 import View.MainWindow.Objects
 import qualified Graphics.UI.Simplify.EntryBasic as Extra
 
-installHandlers :: CRef -> IO()
+installHandlers :: CEnv -> IO()
 installHandlers =
   Extra.installHandlers [ AccountIdChanged ] preferencesAccountIDEntry
     setAccountId getAccountId
