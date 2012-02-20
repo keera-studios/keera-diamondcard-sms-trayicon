@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# Small script to count the number of lines and errors/warnings reported
+# by hlint
 FILES=$(find src/ | grep '.hs$')
 NLINES=0
 NHLINTMSGS=0
