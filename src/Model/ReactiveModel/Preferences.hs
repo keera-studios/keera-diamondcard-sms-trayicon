@@ -1,3 +1,4 @@
+{-# LANGUAGE TemplateHaskell #-}
 -- | This module holds the functions to access and modify the project name
 -- in a reactive model.
 module Model.ReactiveModel.Preferences
@@ -11,30 +12,34 @@ module Model.ReactiveModel.Preferences
   where
 
 -- Internal imports
+import Control.Concurrent.Model.THAccessors
 import Model.Model
 import Model.ReactiveModel.ReactiveModelInternals
 import Model.ReactiveModel.ModelEvents
 
-setSender :: ReactiveModel -> String -> ReactiveModel
-setSender rm n = triggerEvent rm' ev
-  where rm' = rm `onBasicModel` (\b -> b { sender = n })
-        ev  = SenderChanged
+$( reactiveModelAccessors "Sender" "String" )
+-- setSender :: ReactiveModel -> String -> ReactiveModel
+-- setSender rm n = triggerEvent rm' ev
+--   where rm' = rm `onBasicModel` (\b -> b { sender = n })
+--         ev  = SenderChanged
 
-getSender :: ReactiveModel -> String
-getSender = sender . basicModel
+-- getSender :: ReactiveModel -> String
+-- getSender = sender . basicModel
 
-setAccountId :: ReactiveModel -> String -> ReactiveModel
-setAccountId rm n = triggerEvent rm' ev
-  where rm' = rm `onBasicModel` (\b -> b { accountId = n })
-        ev  = AccountIdChanged
+$( reactiveModelAccessors "AccountId" "String" )
+-- setAccountId :: ReactiveModel -> String -> ReactiveModel
+-- setAccountId rm n = triggerEvent rm' ev
+--   where rm' = rm `onBasicModel` (\b -> b { accountId = n })
+--         ev  = AccountIdChanged
 
-getAccountId :: ReactiveModel -> String
-getAccountId = accountId . basicModel
+-- getAccountId :: ReactiveModel -> String
+-- getAccountId = accountId . basicModel
 
-setPincode :: ReactiveModel -> String -> ReactiveModel
-setPincode rm n = triggerEvent rm' ev
-  where rm' = rm `onBasicModel` (\b -> b { pincode = n })
-        ev  = PincodeChanged
+$( reactiveModelAccessors "Pincode" "String" )
+-- setPincode :: ReactiveModel -> String -> ReactiveModel
+-- setPincode rm n = triggerEvent rm' ev
+--   where rm' = rm `onBasicModel` (\b -> b { pincode = n })
+--         ev  = PincodeChanged
 
-getPincode :: ReactiveModel -> String
-getPincode = pincode . basicModel
+-- getPincode :: ReactiveModel -> String
+-- getPincode = pincode . basicModel

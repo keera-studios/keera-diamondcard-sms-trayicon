@@ -67,6 +67,8 @@ Executable keera-diamondcard-sms-trayicon
                  mtl,
                  -- Advanced monad control
                  IfElse,
+                 -- TH
+                 template-haskell,
 
                  -- UI
                  glade,

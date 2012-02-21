@@ -1,3 +1,4 @@
+{-# LANGUAGE TemplateHaskell #-}
 -- | This module holds the functions to access and modify the project name
 -- in a reactive model.
 module Model.ProtectedModel.SMS
@@ -9,17 +10,20 @@ module Model.ProtectedModel.SMS
   where
 
 -- Internal imports
-import Model.ProtectedModel.ProtectedModelInternals
+import           Control.Concurrent.Model.THAccessors
+import           Model.ProtectedModel.ProtectedModelInternals
 import qualified Model.ReactiveModel as RM
 
-setDestination :: ProtectedModel -> String -> IO()
-setDestination pm n = applyToReactiveModel pm (`RM.setDestination` n)
+$( protectedModelAccessors "Destination" "String" )
+-- setDestination :: ProtectedModel -> String -> IO()
+-- setDestination pm n = applyToReactiveModel pm (`RM.setDestination` n)
 
-getDestination :: ProtectedModel -> IO String
-getDestination = (`onReactiveModel` RM.getDestination)
+-- getDestination :: ProtectedModel -> IO String
+-- getDestination = (`onReactiveModel` RM.getDestination)
 
-setMessage :: ProtectedModel -> String -> IO()
-setMessage pm n = applyToReactiveModel pm (`RM.setMessage` n)
+$( protectedModelAccessors "Message" "String" )
+-- setMessage :: ProtectedModel -> String -> IO()
+-- setMessage pm n = applyToReactiveModel pm (`RM.setMessage` n)
 
-getMessage :: ProtectedModel -> IO String
-getMessage = (`onReactiveModel` RM.getMessage)
+-- getMessage :: ProtectedModel -> IO String
+-- getMessage = (`onReactiveModel` RM.getMessage)
