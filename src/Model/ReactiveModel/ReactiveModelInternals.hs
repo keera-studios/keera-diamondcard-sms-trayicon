@@ -4,6 +4,12 @@
 -- reactive model is not necessarily concurrent (it doesn't have its own thread),
 -- although a facility is included to make it also concurrent (so that
 -- event handlers can be called as soon as they are present).
+--
+-- FIXME: In a very rails-like move, this module will likely be
+-- exactly the same for all programs, so we should try to put
+-- a "Convention-over-configuration" policy in place and remove this
+-- unless it must be adapted by the user.
+
 module Model.ReactiveModel.ReactiveModelInternals
    ( ReactiveModel
    , GRM.basicModel

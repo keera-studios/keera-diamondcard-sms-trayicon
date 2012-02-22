@@ -4,20 +4,17 @@
 -- (and updates the view accordingly), and another that must be checked
 -- when the view receives an event (and updates the model accordingly).
 
-module Controller.Conditions
-   ( installHandlers )
-  where
+module Controller.Conditions where
 
 -- Internal libraries
 import CombinedEnvironment
 
 -- Internal libraries: specific conditions
 import qualified Controller.Conditions.Config                   as Config
-import qualified Controller.Conditions.AccountID                as AccountID
-import qualified Controller.Conditions.Pincode                  as Pincode
-import qualified Controller.Conditions.Sender                   as Sender
-import qualified Controller.Conditions.Destination              as Destination
+-- SMS contents and destination
 import qualified Controller.Conditions.Message                  as Message
+-- User Preferences
+import qualified Controller.Conditions.Preferences              as Preferences
 import qualified Controller.Conditions.PreferencesDialog        as PreferencesDialog
 import qualified Controller.Conditions.PreferencesDialogDestroy as PreferencesDialogDestroy
 import qualified Controller.Conditions.PopupMenu                as PopupMenu
@@ -29,14 +26,11 @@ import qualified Controller.Conditions.Quit                     as Quit
 installHandlers :: CEnv -> IO()
 installHandlers cenv = do
   Config.installHandlers                   cenv
-  AccountID.installHandlers                cenv
-  Pincode.installHandlers                  cenv
-  Sender.installHandlers                   cenv
+  Preferences.installHandlers              cenv
   PreferencesDialog.installHandlers        cenv
   PreferencesDialogDestroy.installHandlers cenv
   PopupMenu.installHandlers                cenv
   SmsWindow.installHandlers                cenv
-  Destination.installHandlers              cenv
   Message.installHandlers                  cenv
   Quit.installHandlers                     cenv
   Send.installHandlers                     cenv

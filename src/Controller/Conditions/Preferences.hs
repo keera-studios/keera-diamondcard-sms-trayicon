@@ -17,7 +17,7 @@ installHandlers cenv = do
   senderEntry    <- cenvReactiveEntry preferencesSenderEntry    cenv
   accountIdEntry <- cenvReactiveEntry preferencesAccountIDEntry cenv
   pincodeEntry   <- cenvReactiveEntry preferencesPincodeEntry   cenv
-  installConditions cenv $
+  installConditions cenv
     [ senderEntry    =:= senderField
     , accountIdEntry =:= accountIdField
     , pincodeEntry   =:= pincodeField

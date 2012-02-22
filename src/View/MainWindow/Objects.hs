@@ -1,5 +1,16 @@
--- | This module contains oprations to access the objects in this interface,
--- and one to obtain a builder from which they can be accessed.
+-- | This module contains oprations to access the objects in this
+-- interface, and one to obtain a builder from which they can be
+-- accessed.
+--
+-- The code to generate the obBuilder's from the field name and the
+-- type is 5 lines long. TH has linking problems on windows, but not
+-- all OSs are so definicient, so we should definitely use that code
+-- here. It wouldn't be too hard to create a variant that takes the
+-- type of the element from the glade file.
+--
+-- Also, part of this code is too similar to that of other projects.
+-- In particular, the loadInterface and onBuilder functions could
+-- be moved to other modules.
 module View.MainWindow.Objects where
 
 import Graphics.UI.Gtk

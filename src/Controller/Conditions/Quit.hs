@@ -1,4 +1,4 @@
--- | Shows the popup menu when the user right-clicks the icon
+-- | Quits when the user selects the quit option in the popup menu.
 module Controller.Conditions.Quit where
 
 import Control.Monad

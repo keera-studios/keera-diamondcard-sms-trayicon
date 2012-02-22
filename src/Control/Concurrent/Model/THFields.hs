@@ -96,7 +96,7 @@ reactiveField fname ftype = sequenceQ
   -- Declare plain setter
   [ sigD setterName setterType
   , funD setterName [clause []
-                     -- Main result: triggerEvent rm' ev
+                     -- Main result: just use the field's setter
                      (normalB (appE (varE (mkName "fieldSetter"))
                                     (varE fieldName)
                               )
@@ -107,28 +107,28 @@ reactiveField fname ftype = sequenceQ
   -- Declare plain getter
   , sigD getterName getterType
   , funD getterName [clause []
-                     -- Main result: triggerEvent rm' ev
+                     -- Main result: just use the field's getter
                      (normalB (appE (varE (mkName "fieldGetter"))
                                     (varE fieldName)
                               )
                      )
                      []
                      ]
-  -- Declare field  
+  -- Declare field with 4 elements 
   , sigD fieldName fieldType
   , funD fieldName [clause []
                      (normalB 
                       (tupE
-                       [ varE (mkName fnamelc)
-                       , varE (mkName "preTrue")
-                       , lamE [varP (mkName "v"), varP (mkName "b")]
+                       [ varE (mkName fnamelc)                        -- function to read from model
+                       , varE (mkName "preTrue")                      -- precondition to update model
+                       , lamE [varP (mkName "v"), varP (mkName "b")]  -- function to update model
                          (recUpdE (varE (mkName "b"))
                           [fieldExp 
                            (mkName fnamelc)
                            (varE (mkName "v"))
                           ]
                          )
-                       , conE (mkName (fname ++ "Changed"))
+                       , conE (mkName (fname ++ "Changed"))           -- Event to trigger when changed
                        ]
                       )
                      )
