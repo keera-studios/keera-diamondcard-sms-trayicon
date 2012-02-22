@@ -5,7 +5,7 @@ import Control.Monad
 
 -- Internal libraries
 import CombinedEnvironment
-import Controller.ConditionDirection
+import Hails.MVC.Controller.ConditionDirection
 import Model.ProtectedModel
 import Model.ProtectedModel.Reactive
 
