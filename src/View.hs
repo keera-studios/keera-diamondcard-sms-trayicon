@@ -8,7 +8,6 @@ module View (module Exported) where
 
 -- External libraries
 import Graphics.UI.Gtk.GtkView (GtkGUI(..))
-import qualified Graphics.UI.Gtk.GtkView as GtkView
 
 -- Internal libraries
 import Hails.MVC.View.GtkView     as Exported

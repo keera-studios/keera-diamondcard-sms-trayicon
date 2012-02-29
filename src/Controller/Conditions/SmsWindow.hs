@@ -1,4 +1,4 @@
--- | Toggles window visibility when the user clicks on the icon.
+-- | Toggles window visibility when the user clicks on the status icon.
 module Controller.Conditions.SmsWindow where
 
 import Control.Monad
@@ -7,8 +7,6 @@ import Data.Maybe
 import Graphics.UI.Gtk
 
 import CombinedEnvironment
-import View
-import View.MainWindow.Objects
 
 installHandlers :: CEnv -> IO()
 installHandlers cenv = void $ do
@@ -33,8 +31,9 @@ condition cenv = onViewAsync $ do
    then widgetHide mw
    else awhenM (statusIconGetGeometry icon) $ \(rect, orient) -> do
           widgetShowAll mw
-          -- If possible, it places the window next to icon, within the screen limits
-          -- Otherwise, the window is centered on the screen
+          -- If possible, it places the window next to icon, within
+          -- the screen limits Otherwise, the window is centered on
+          -- the screen
           screen <- screenGetDefault
           if isNothing screen
            then windowSetPosition mw WinPosCenter
@@ -45,11 +44,13 @@ condition cenv = onViewAsync $ do
                    let pos = getWindowPosition winSize rect orient (screenW, screenH)
                    uncurry (windowMove mw) pos
 
--- | Given a window size, an icon rectangle and orientation, and a screen size, returns
--- the suggested window position if one can be found, and nothing if a fixed position
--- cannot be suggested.
--- In the latter case, the best suggestion would be to center the window on the screen.
-getWindowPosition :: (Int, Int) -> Rectangle -> Orientation -> (Int, Int) -> (Int, Int)
+-- | Given a window size, an icon rectangle and orientation, and a
+-- screen size, returns the suggested window position if one can be
+-- found, and nothing if a fixed position cannot be suggested.  In the
+-- latter case, the best suggestion would be to center the window on
+-- the screen.
+getWindowPosition :: (Int, Int) -> Rectangle -> Orientation -> (Int, Int)
+                     -> (Int, Int)
 getWindowPosition win rect orient screen
  -- The icon is below
  | orient == OrientationHorizontal && plusOrMinus rectY rectH screenH winH

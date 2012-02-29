@@ -7,6 +7,6 @@ module Model.ProtectedModel
   where
 
 import Model.ProtectedModel.ProtectedModelInternals
-import Model.ReactiveModel.ModelEvents      as Exported
-import Model.ProtectedModel.Initialisation  as Exported
-import Model.ProtectedModel.ProtectedFields as Exported
+import Model.ReactiveModel.ModelEvents               as Exported
+import Model.ProtectedModel.ProtectedFields          as Exported
+import Hails.MVC.Model.ProtectedModel.Initialisation as Exported

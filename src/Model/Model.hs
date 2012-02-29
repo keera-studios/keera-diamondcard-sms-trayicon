@@ -1,6 +1,4 @@
-{-# LANGUAGE PackageImports #-}
 module Model.Model where
-
 
 data Model = Model
  { sender      :: String

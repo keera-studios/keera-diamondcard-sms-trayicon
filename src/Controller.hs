@@ -12,11 +12,11 @@ module Controller where
 -- import System.Glib.GError
 
 -- Internal imports
-import View (initView, startView)
 import CombinedEnvironment
 import Controller.Conditions
 import Model.Model
-import Model.ProtectedModel
+-- import Model.ProtectedModel
+-- import View (initView, startView)
 
 -- | Starts the program by creating the model,
 -- the view, starting all the concurrent threads,

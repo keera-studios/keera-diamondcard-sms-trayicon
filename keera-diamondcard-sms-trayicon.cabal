@@ -80,6 +80,5 @@ Executable keera-diamondcard-sms-trayicon
                  filepath,
 
                  -- Keera packages
-                 protected-objects             >= 0.0.2,
-                 combined-mvc-environment      >= 0.0.2,
+                 hails                         >= 0.0.1,
                  keera-network-sms-diamondcard >= 0.0.2

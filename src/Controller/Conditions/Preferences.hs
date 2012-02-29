@@ -1,4 +1,5 @@
--- | This module captures three conditions presented in the preferences dialog: 
+-- | This module captures three conditions presented in the
+-- preferences dialog:
 -- * The text entry for the Account ID field holds the same value as the
 -- model's accountId field
 -- * The text entry for the Pincode field holds the same value as the
@@ -8,9 +9,9 @@
 module Controller.Conditions.Preferences where
 
 import CombinedEnvironment
-import Model.ProtectedModel
 import Graphics.UI.Gtk.Reactive
-import View.MainWindow.Objects
+-- import Model.ProtectedModel
+-- import View.MainWindow.Objects
 
 installHandlers :: CEnv -> IO()
 installHandlers cenv = do

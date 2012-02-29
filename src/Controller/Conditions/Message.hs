@@ -11,9 +11,9 @@ module Controller.Conditions.Message where
 -- import qualified Graphics.UI.Simplify.EntryBasic as Extra
 
 import CombinedEnvironment
-import Model.ProtectedModel
 import Graphics.UI.Gtk.Reactive
-import View.MainWindow.Objects
+-- import Model.ProtectedModel
+-- import View.MainWindow.Objects
 
 installHandlers :: CEnv -> IO()
 installHandlers cenv = do

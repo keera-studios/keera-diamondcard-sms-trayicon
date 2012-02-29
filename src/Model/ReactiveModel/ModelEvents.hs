@@ -1,3 +1,4 @@
+{-# LANGUAGE DeriveDataTypeable #-}
 -- | This module contains all the events in our program. 
 --
 -- FIXME: Because we want events to be comparable, we need to use the
@@ -17,7 +18,9 @@ module Model.ReactiveModel.ModelEvents
   ) where
 
 -- import GenericModel.GenericModelEvent
-import qualified Control.Concurrent.Model.ReactiveModel as GRM
+import qualified Hails.MVC.Model.ReactiveModel as GRM
+import Hails.MVC.Model.ReactiveModel.Events
+-- import Data.Typeable
 
 data ModelEvent = UncapturedEvent
                 | SenderChanged
@@ -27,7 +30,10 @@ data ModelEvent = UncapturedEvent
                 | MessageChanged 
                 | StatusChanged 
                 | Initialised
- deriving (Eq,Ord)
+ deriving (Eq,Ord,Show)
 
 instance GRM.Event ModelEvent where
   undoStackChangedEvent = UncapturedEvent
+
+instance InitialisedEvent ModelEvent where
+  initialisedEvent = Initialised

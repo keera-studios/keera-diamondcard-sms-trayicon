@@ -6,19 +6,20 @@ module Model.ProtectedModel.ProtectedFields where
 
 -- Internal imports
 import           Hails.MVC.Model.THFields
+import           Hails.MVC.Model.ProtectedModel.Reactive
 import           Model.Model
 import           Model.ProtectedModel.ProtectedModelInternals
-import           Model.ProtectedModel.Reactive
+import           Model.ReactiveModel.ModelEvents
 import qualified Model.ReactiveModel as RM
 
 -- The system status
-protectedField "Status"      "Status"
+protectedField "Status"      "Status" "Model" "ModelEvent"
 
 -- The SMS contents and the destination number
-protectedField "Destination" "String"
-protectedField "Message"     "String"
+protectedField "Destination" "String" "Model" "ModelEvent"
+protectedField "Message"     "String" "Model" "ModelEvent"
  
 -- The configuration data
-protectedField "Sender"      "String"
-protectedField "AccountId"   "String"
-protectedField "Pincode"     "String"
+protectedField "Sender"      "String" "Model" "ModelEvent"
+protectedField "AccountId"   "String" "Model" "ModelEvent"
+protectedField "Pincode"     "String" "Model" "ModelEvent"

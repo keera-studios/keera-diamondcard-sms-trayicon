@@ -3,11 +3,14 @@
 -- from the BasicModel.
 module Model.ReactiveModel.ReactiveFields where
 
--- Internal imports
+-- Semi-Internal imports
 import qualified Hails.MVC.Model.ReactiveFields as RFs
 import Hails.MVC.Model.ReactiveFields 
          (fieldGetter, fieldSetter, preTrue)
 import Hails.MVC.Model.THFields
+-- import Hails.MVC.Model.ReactiveModel
+
+-- Internal imports
 import Model.Model
 import Model.ReactiveModel.ReactiveModelInternals
 import Model.ReactiveModel.ModelEvents

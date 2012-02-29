@@ -20,6 +20,6 @@ module Model.ReactiveModel
   where
 
 import Model.ReactiveModel.ReactiveModelInternals
-import Model.ReactiveModel.Initialisation as Exported
-import Model.ReactiveModel.ReactiveFields as Exported
-import Model.ReactiveModel.ModelEvents    as Exported
+import Hails.MVC.Model.ReactiveModel.Initialisation as Exported
+import Model.ReactiveModel.ReactiveFields           as Exported
+import Model.ReactiveModel.ModelEvents              as Exported

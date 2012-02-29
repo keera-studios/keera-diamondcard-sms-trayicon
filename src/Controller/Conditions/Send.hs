@@ -7,9 +7,9 @@ import Network.SMS.DiamondCard
 
 import CombinedEnvironment
 import Model.Model
-import Model.ProtectedModel
-import View
-import View.MainWindow.Objects
+-- import Model.ProtectedModel
+-- import View
+-- import View.MainWindow.Objects
 
 installHandlers :: CEnv -> IO()
 installHandlers cenv = void $ do

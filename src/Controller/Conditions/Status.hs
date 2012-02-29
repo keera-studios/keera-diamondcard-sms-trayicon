@@ -11,9 +11,9 @@ import Graphics.UI.Gtk
 
 import CombinedEnvironment
 import Model.Model (Status(..))
-import Model.ProtectedModel
-import View
-import View.MainWindow.Objects
+-- import Model.ProtectedModel
+-- import View
+-- import View.MainWindow.Objects
 
 -- | Updates the icon when the system status changes.
 --   Resets the program status when the user clicks on the icon.

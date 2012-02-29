@@ -16,6 +16,6 @@ module Model.ProtectedModel.ProtectedModelInternals
 
 import Model.Model
 import Model.ReactiveModel.ModelEvents
-import qualified Control.Concurrent.Model.ProtectedModel as GPM
+import qualified Hails.MVC.Model.ProtectedModel as GPM
 
 type ProtectedModel = GPM.ProtectedModel Model ModelEvent

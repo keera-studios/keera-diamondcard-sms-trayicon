@@ -33,6 +33,7 @@ gtkBuilderAccessor "trayIcon"                  "StatusIcon"
 gtkBuilderAccessor "destinationEntry"          "Entry"
 gtkBuilderAccessor "messageEntry"              "Entry"
 
+-- | Send button
 gtkBuilderAccessor "sendBtn" "Button"
 
 -- | Popup menu

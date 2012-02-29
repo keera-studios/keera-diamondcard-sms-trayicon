@@ -1,12 +1,14 @@
 -- | Shows the popup menu when the user right-clicks the icon
 module Controller.Conditions.PopupMenu where
 
+-- External imports
 import Control.Monad
 import Graphics.UI.Gtk
 
+-- Internal imports
 import CombinedEnvironment
-import View
-import View.MainWindow.Objects
+-- import View
+-- import View.MainWindow.Objects
 
 installHandlers :: CEnv -> IO()
 installHandlers cenv = void $ do
