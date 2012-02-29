@@ -1,6 +1,11 @@
 -- | This contains the main controller. Many operations will be
 -- implemented in the Controller.* subsystem. This module simply
 -- initialises program.
+
+-- FIXME: This module can be parameterised and included in Hails as
+-- the default Deployment controller.
+-- The debug version could be included as a separate controller.
+
 module Controller where
 
 -- Uncomment the following line if you need to capture errors
@@ -31,7 +36,7 @@ startController = do
     -- Install the model and view handlers
     installHandlers cenv
   
-    -- Modify the system initialisation
+    -- Notify the system's initialisation
     initialiseSystem $ model cenv
 
     -- Run the view

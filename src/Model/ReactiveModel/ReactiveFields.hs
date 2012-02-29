@@ -4,10 +4,10 @@
 module Model.ReactiveModel.ReactiveFields where
 
 -- Internal imports
-import qualified Control.Concurrent.Model.ReactiveFields as RFs
-import Control.Concurrent.Model.ReactiveFields 
+import qualified Hails.MVC.Model.ReactiveFields as RFs
+import Hails.MVC.Model.ReactiveFields 
          (fieldGetter, fieldSetter, preTrue)
-import Control.Concurrent.Model.THFields
+import Hails.MVC.Model.THFields
 import Model.Model
 import Model.ReactiveModel.ReactiveModelInternals
 import Model.ReactiveModel.ModelEvents

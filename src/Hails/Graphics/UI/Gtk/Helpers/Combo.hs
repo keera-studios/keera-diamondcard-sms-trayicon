@@ -1,4 +1,4 @@
-module Graphics.UI.Gtk.Helpers.Combo where
+module Hails.Graphics.UI.Gtk.Helpers.Combo where
 
 import Data.List
 import Data.Maybe

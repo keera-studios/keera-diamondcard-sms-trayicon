@@ -21,16 +21,16 @@ import Graphics.UI.Gtk
 
 -- Internal libraries
 import CombinedEnvironment
+import Hails.Graphics.UI.Gtk.Helpers.Combo
 import Graphics.UI.Simplify.Basic
 import Graphics.UI.Simplify.Reactive as Exported
-import Graphics.UI.Gtk.Helpers.Combo
 import View
 
 -- | Accesses a Reactive View Field from a CEnv
 cenvReactiveField :: (a -> ReactiveViewField b) -> Accessor a
                   -> CEnv -> IO (ReactiveViewField b)
 cenvReactiveField f entryF cenv = 
-  fmap f $ entryF $ mainWindowBuilder $ view cenv
+  fmap f $ entryF $ uiBuilder $ view cenv
 
 -- An Entry's main reactive view field is a string with the contents
 -- of the text box

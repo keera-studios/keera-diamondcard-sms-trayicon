@@ -12,14 +12,14 @@ import View.MainWindow.Objects
 
 installHandlers :: CEnv -> IO()
 installHandlers cenv = void $ do
- icon <- trayIcon $ mainWindowBuilder $ view cenv
+ icon <- trayIcon $ uiBuilder $ view cenv
  icon `on` statusIconActivate $ condition cenv
 
 condition :: CEnv -> IO()
 condition cenv = onViewAsync $ do
 
   -- UI elements
-  let ui = mainWindowBuilder $ view cenv
+  let ui = uiBuilder $ view cenv
 
   -- Window, hidden if currently shown, shown if currently hidden
   mw            <- mainWindow ui

@@ -5,7 +5,7 @@
 module Model.ProtectedModel.ProtectedFields where
 
 -- Internal imports
-import           Control.Concurrent.Model.THFields
+import           Hails.MVC.Model.THFields
 import           Model.Model
 import           Model.ProtectedModel.ProtectedModelInternals
 import           Model.ProtectedModel.Reactive

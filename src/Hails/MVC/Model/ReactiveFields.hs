@@ -1,4 +1,4 @@
-module Control.Concurrent.Model.ReactiveFields where
+module Hails.MVC.Model.ReactiveFields where
 
 import Control.Concurrent.Model.ReactiveModel
 

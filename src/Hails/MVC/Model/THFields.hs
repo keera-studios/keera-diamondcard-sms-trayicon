@@ -2,7 +2,7 @@
 --   a given model field and type that access the ProtectedModel in
 --   the IO Monad and the reactive model.
 
-module Control.Concurrent.Model.THFields where
+module Hails.MVC.Model.THFields where
 
 -- External imports
 import Data.Char

@@ -13,14 +13,14 @@ import View.MainWindow.Objects
 
 installHandlers :: CEnv -> IO()
 installHandlers cenv = void $ do
- send <- sendBtn $ mainWindowBuilder $ view cenv
+ send <- sendBtn $ uiBuilder $ view cenv
  send `onClicked` condition cenv
 
 condition :: CEnv -> IO()
 condition cenv = onViewAsync $ void $ do
 
   -- Hide the window if it's shown
-  mw <- mainWindow $ mainWindowBuilder $ view cenv
+  mw <- mainWindow $ uiBuilder $ view cenv
   isWindowShown <- get mw widgetVisible
   when isWindowShown $ widgetHide mw
 

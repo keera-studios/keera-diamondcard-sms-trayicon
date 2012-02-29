@@ -10,5 +10,5 @@ import View.MainWindow.Objects
 
 installHandlers :: CEnv -> IO()
 installHandlers cenv = void $ do
- menu <- mainMenuQuit $ mainWindowBuilder $ view cenv
+ menu <- mainMenuQuit $ uiBuilder $ view cenv
  menu `on` menuItemActivate $ mainQuit

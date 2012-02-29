@@ -2,7 +2,7 @@
 --   for a given field and type that access the ProtectedModel in the
 --   IO Monad and the reactive model.
 
-module Control.Concurrent.Model.THAccessors where
+module Hails.MVC.Model.THAccessors where
 
 -- External imports
 import Data.Char

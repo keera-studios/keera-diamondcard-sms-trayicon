@@ -22,7 +22,7 @@ installHandlers cenv = void $ do
  let (vw, pm) = (view &&& model) cenv
  onEvent pm StatusChanged $ condition cenv
 
- icon <- trayIcon $ mainWindowBuilder vw
+ icon <- trayIcon $ uiBuilder vw
  icon `on` statusIconActivate $ conditionClick cenv
 
 -- | Updates the icon based on the current status and the image associated to
@@ -30,7 +30,7 @@ installHandlers cenv = void $ do
 condition :: CEnv -> IO()
 condition cenv = onViewAsync $ do
   let (vw, pm) = (view &&& model) cenv
-  icon     <- trayIcon $ mainWindowBuilder vw 
+  icon     <- trayIcon $ uiBuilder vw 
   status   <- getStatus pm
 
   let stView = lookup status statusImage

@@ -10,12 +10,12 @@ import View.MainWindow.Objects
 
 installHandlers :: CEnv -> IO()
 installHandlers cenv = void $ do
-  icon <- trayIcon $ mainWindowBuilder $ view cenv
+  icon <- trayIcon $ uiBuilder $ view cenv
   icon `on` statusIconPopupMenu $ condition cenv
 
 condition :: CEnv -> Maybe MouseButton -> TimeStamp -> IO()
 condition cenv m t = do
-  let ui = mainWindowBuilder $ view cenv
+  let ui = uiBuilder $ view cenv
 
   mw   <- mainWindow ui
   menu <- mainMenu ui

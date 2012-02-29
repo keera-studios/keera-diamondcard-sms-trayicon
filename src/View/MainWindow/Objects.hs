@@ -20,8 +20,8 @@ import Hails.Graphics.UI.Gtk.Builder           as HailsBuilder
 import Hails.Graphics.UI.Gtk.THBuilderAccessor
 import Paths_keera_diamondcard_sms_trayicon
 
--- | Returns a builder from which the objects in this part of the interface
--- can be accessed.
+-- | Returns a builder from which the objects in this part of the
+-- interface can be accessed.
 loadInterface :: IO Builder
 loadInterface = HailsBuilder.loadDefaultInterface getDataFileName
 
