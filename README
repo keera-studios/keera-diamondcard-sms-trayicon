@@ -1,0 +1,39 @@
+Welcome to Keera's DiamondCard sms sending app
+
+This application creates a status icon in your traybar and, when you
+click on it, it shows a window in which you can fill in the SMS data to
+send an SMS using the DiamondCard voip provider.
+
+*** Two VERY IMPORTANT things ***
+
+ - There's no syntax checking, for now. What you type is what you
+send. Diamondcard doesn't handle accents very well (it increases the
+amount of SMS to send by several orders of magnitude). The format for
+phone numbers is: INTERNATIONAL PREFIX followed by NUMBER. For
+instance, to send an SMS to UK, you'd write 447425000000 if 7425000000
+is your phone number in UK. Don't write +, 00 or any other strange
+prefix or it won't work.
+
+ - You need to fill in your diamondcard data in the preferences
+dialog. This will be saved, IN PLAIN TEXT, in your home directory.
+Right click on the icon and select preferences. Log into your
+diamondcard account on your browser if you don't know what those
+are. Again, set your phone number in <INTERNATIONAL CODE><PHONE
+NUMBER> format. No hypens, no plus signs, no 00 prefix.
+
+*** COMPILATION ***
+
+To compile, extract the files in a directory.
+
+You need to run hails inside the src/ directory first.
+
+Just install 'keera-hails' and run:
+
+cd src/
+hails --init
+cd ..
+cabal install
+
+In a future version, this will be done for you automatically.
+
+The executable will be named keera-diamondcard-sms-trayicon.
