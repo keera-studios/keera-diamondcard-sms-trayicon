@@ -13,13 +13,13 @@ import           Model.ReactiveModel.ModelEvents
 import qualified Model.ReactiveModel as RM
 
 -- The system status
-protectedField "Status"      "Status" "Model" "ModelEvent"
+protectedField "Status"      [t|Status|] "Model" "ModelEvent"
 
 -- The SMS contents and the destination number
-protectedField "Destination" "String" "Model" "ModelEvent"
-protectedField "Message"     "String" "Model" "ModelEvent"
+protectedField "Destination" [t|String|] "Model" "ModelEvent"
+protectedField "Message"     [t|String|] "Model" "ModelEvent"
  
 -- The configuration data
-protectedField "Sender"      "String" "Model" "ModelEvent"
-protectedField "AccountId"   "String" "Model" "ModelEvent"
-protectedField "Pincode"     "String" "Model" "ModelEvent"
+protectedField "Sender"      [t|String|] "Model" "ModelEvent"
+protectedField "AccountId"   [t|String|] "Model" "ModelEvent"
+protectedField "Pincode"     [t|String|] "Model" "ModelEvent"

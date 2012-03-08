@@ -20,13 +20,13 @@ import Model.ReactiveModel.ModelEvents
 type Field a = RFs.Field a Model ModelEvent
 
 -- System status
-reactiveField "Status"      "Status"
+reactiveField "Status"      [t|Status|]
 
 -- Preferences
-reactiveField "Sender"      "String"
-reactiveField "AccountId"   "String"
-reactiveField "Pincode"     "String"
+reactiveField "Sender"      [t|String|]
+reactiveField "AccountId"   [t|String|]
+reactiveField "Pincode"     [t|String|]
 
 -- Message contents and destination number
-reactiveField "Destination" "String"
-reactiveField "Message"     "String"
+reactiveField "Destination" [t|String|]
+reactiveField "Message"     [t|String|]
