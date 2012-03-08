@@ -6,7 +6,7 @@ Name:                keera-diamondcard-sms-trayicon
 -- The package version. See the Haskell package versioning policy
 -- (http://www.haskell.org/haskellwiki/Package_versioning_policy) for
 -- standards guiding when and how versions should be incremented.
-Version:             0.0.2
+Version:             0.0.3
 
 -- A short (one-line) description of the package.
 Synopsis:            A program to send SMS's that docks in the system taskbar
@@ -38,7 +38,7 @@ Stability:           Provisional
 
 Category:            Text
 
-Build-type:          Simple
+Build-type:          Custom
 
 Data-files: Interface.glade
 
@@ -80,5 +80,5 @@ Executable keera-diamondcard-sms-trayicon
                  filepath,
 
                  -- Keera packages
-                 hails                         >= 0.0.1,
+                 hails                         >= 0.0.2,
                  keera-network-sms-diamondcard >= 0.0.2

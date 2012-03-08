@@ -29,18 +29,17 @@ or if it sets your house on fire. This is work in progress.
 
 *** COMPILATION ***
 
-To compile, extract the files in a directory.
+Dependencies:
+* hails (http://github.com/ivanperez-keera/keera-hails)
+* keera-network-sms-diamondcard (http://github.com/ivanperez-keera/keera-network-sms-diamondcard)
 
-You need to run hails inside the src/ directory first.
+Other dependencies will be installed automatically by cabal.
 
-Just install 'keera-hails' (http://github.com/ivanperez-keera/keera-hails)
-and run:
+To install this program, just download the code, extract,
+cd into the directory where the files have been extracted
+and run: cabal install
 
-cd src/
-hails --init
-cd ..
-cabal install
+You'll have to do the same for each of the dependencies first.
 
-In a future version, this will be done for you automatically.
-
-The executable will be named keera-diamondcard-sms-trayicon.
+Once installed the executable will be named keera-diamondcard-sms-trayicon, and
+it will create config files in ~/.diamondcard-sms
