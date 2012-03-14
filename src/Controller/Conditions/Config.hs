@@ -16,8 +16,9 @@ installHandlers cenv = do
 myConfigIO :: ConfigIO CEnv
 myConfigIO = (myConfigRead, myConfigShow)
 
-myConfigRead :: String -> CEnv -> IO()
-myConfigRead c cenv = do
+myConfigRead :: Maybe String -> CEnv -> IO()
+myConfigRead Nothing  _    = return ()
+myConfigRead (Just c) cenv = do
    setAccountId pm acc
    setPincode   pm pin
    setSender    pm from
