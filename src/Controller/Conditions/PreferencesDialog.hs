@@ -5,6 +5,8 @@ import Control.Monad
 import Graphics.UI.Gtk
 
 import CombinedEnvironment
+import Hails.MVC.View
+import Hails.MVC.View.GtkView
 -- import View
 -- import View.MainWindow.Objects
 
@@ -14,7 +16,7 @@ installHandlers cenv = void $ do
  menu `on` menuItemActivate $ condition cenv
 
 condition :: CEnv -> IO()
-condition cenv = onViewAsync $ do
+condition cenv = postGUIAsync $ do
  dg <- preferencesDialog $ uiBuilder $ view cenv
  _  <- dialogRun dg
  widgetHide dg

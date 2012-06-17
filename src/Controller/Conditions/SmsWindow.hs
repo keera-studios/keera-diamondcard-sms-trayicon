@@ -14,7 +14,7 @@ installHandlers cenv = void $ do
  icon `on` statusIconActivate $ condition cenv
 
 condition :: CEnv -> IO()
-condition cenv = onViewAsync $ do
+condition cenv = postGUIAsync $ do
 
   -- UI elements
   let ui = uiBuilder $ view cenv

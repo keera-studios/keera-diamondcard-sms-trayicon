@@ -15,7 +15,9 @@ import System.Directory
 import System.FilePath.Windows
 
 main = let hooks = simpleUserHooks 
-       in defaultMainWithHooks hooks { confHook = hailsConfigure }
+       in defaultMainWithHooks hooks { confHook = hailsConfigure
+                                     , cleanHook = hailsClean
+                                     }
 
 -- This is a non-portable version of hails. It generates the
 -- files inside the src dir.
@@ -25,21 +27,8 @@ hailsConfigure (gpd, info) flags = do
   (confHook simpleUserHooks) (gpd, info) flags 
  where verbosity = fromFlag $ configVerbosity flags
 
--- ppXpp :: BuildInfo -> LocalBuildInfo -> PreProcessor 
--- ppXpp build local =
---    PreProcessor {
---      platformIndependent = True,
---      runPreProcessor = mkSimplePreProcessor $ \inFile outFile verbosity ->
---        do info verbosity (inFile++" is being preprocessed to "++outFile)
---           let hscFile = replaceExtension inFile "hsc"
---           runSimplePreProcessor (ppCpp build local) inFile  hscFile verbosity
---           handle <- openFile hscFile ReadMode
---           source <- sGetContents handle
---           hClose handle
---           let newsource = unlines $ process $ lines source
---           writeFile hscFile newsource
---           runSimplePreProcessor (ppHsc2hs build local) hscFile outFile verbosity
---           removeFile hscFile
---           return ()
---      }
--- 
+hailsClean :: PackageDescription -> () -> UserHooks -> CleanFlags -> IO ()
+hailsClean pd () hooks flags = do
+  runProgramInvocation verbosity $ simpleProgramInvocation "hails" ["--clean", "--output-dir=src"]
+  (cleanHook simpleUserHooks) pd () hooks flags
+ where verbosity = fromFlag $ cleanVerbosity flags

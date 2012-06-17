@@ -17,7 +17,7 @@ installHandlers cenv = void $ do
  send `onClicked` condition cenv
 
 condition :: CEnv -> IO()
-condition cenv = onViewAsync $ void $ do
+condition cenv = postGUIAsync $ void $ do
 
   -- Hide the window if it's shown
   mw <- mainWindow $ uiBuilder $ view cenv

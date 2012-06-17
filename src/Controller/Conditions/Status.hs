@@ -28,7 +28,7 @@ installHandlers cenv = void $ do
 -- | Updates the icon based on the current status and the image associated to
 -- that status.  The tooltip is also changed.
 condition :: CEnv -> IO()
-condition cenv = onViewAsync $ do
+condition cenv = postGUIAsync $ do
   let (vw, pm) = (view &&& model) cenv
   icon     <- trayIcon $ uiBuilder vw 
   status   <- getStatus pm
@@ -40,7 +40,7 @@ condition cenv = onViewAsync $ do
 
 -- | Resets the program status when the user clicks the tray icon.
 conditionClick :: CEnv -> IO()
-conditionClick cenv = onViewAsync $ void $ do
+conditionClick cenv = postGUIAsync $ void $ do
   let pm = model cenv
   status <- getStatus pm
 
