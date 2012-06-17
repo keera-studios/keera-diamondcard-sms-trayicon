@@ -31,6 +31,14 @@ or if it sets your house on fire. This is work in progress.
 
 Dependencies:
 * hails (http://github.com/ivanperez-keera/keera-hails)
+* gtk-helpers (http://github.com/keera-studios/gtk-helpers)
+* hails-reactivevalues (http://github.com/keera-studios/hails-reactivevalues)
+* hails-reactive-gtk (http://github.com/keera-studios/hails-reactive-gtk)
+* hails-mvc-environment-gtk (http://github.com/keera-studios/hails-mvc-environment-gtk)
+* hails-mvc-model-protectedmodel (http://github.com/keera-studios/hails-mvc-model-protectedmodel)
+* hails-mvc-solutions-config (http://github.com/keera-studios/hails-mvc-solutions-config)
+* hails-mvc-view (http://github.com/keera-studios/hails-mvc-view)
+* hails-mvc-view-gtk (http://github.com/keera-studios/hails-mvc-view-gtk)
 * keera-network-sms-diamondcard (http://github.com/ivanperez-keera/keera-network-sms-diamondcard)
 
 Other dependencies will be installed automatically by cabal.
