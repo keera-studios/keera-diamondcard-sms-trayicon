@@ -80,7 +80,7 @@ Executable keera-diamondcard-sms-trayicon
                  filepath,
 
                  -- Keera packages
-                 gtk-helpers,
+                 gtk-helpers >= 0.0.4,
                  hails-reactivevalues,
                  hails-reactive-gtk,
                  hails-mvc-environment-gtk,

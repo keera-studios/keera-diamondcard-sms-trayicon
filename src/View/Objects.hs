@@ -30,7 +30,7 @@ gtkBuilderAccessor "mainWindow"                "Window"
 gtkBuilderAccessor "trayIcon"                  "StatusIcon"
 
 -- | Message data
-gtkBuilderAccessor "destinationEntry"          "Entry"
+-- gtkBuilderAccessor "destinationEntry"          "Entry"
 gtkBuilderAccessor "messageEntry"              "Entry"
 
 -- | Send button
@@ -46,3 +46,6 @@ gtkBuilderAccessor "preferencesDialog"         "Dialog"
 gtkBuilderAccessor "preferencesAccountIDEntry" "Entry"
 gtkBuilderAccessor "preferencesPincodeEntry"   "Entry"
 gtkBuilderAccessor "preferencesSenderEntry"    "Entry"
+
+gtkBuilderAccessor "destinationAlign"          "Alignment"
+gtkBuilderAccessor "infoLbl"                   "Label"

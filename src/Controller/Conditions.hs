@@ -19,9 +19,12 @@ import qualified Controller.Conditions.PreferencesDialog        as PreferencesDi
 import qualified Controller.Conditions.PreferencesDialogDestroy as PreferencesDialogDestroy
 import qualified Controller.Conditions.PopupMenu                as PopupMenu
 import qualified Controller.Conditions.Send                     as Send
+import qualified Controller.Conditions.CanSend                  as CanSend
 import qualified Controller.Conditions.SmsWindow                as SmsWindow
 import qualified Controller.Conditions.Status                   as Status
 import qualified Controller.Conditions.Quit                     as Quit
+import qualified Controller.Conditions.NumberFormat             as Format
+import qualified Controller.Conditions.InfoLabel                as InfoLabel
 
 installHandlers :: CEnv -> IO()
 installHandlers cenv = do
@@ -34,4 +37,7 @@ installHandlers cenv = do
   Message.installHandlers                  cenv
   Quit.installHandlers                     cenv
   Send.installHandlers                     cenv
+  CanSend.installHandlers                  cenv
   Status.installHandlers                   cenv
+  Format.installHandlers                   cenv
+  InfoLabel.installHandlers                cenv
