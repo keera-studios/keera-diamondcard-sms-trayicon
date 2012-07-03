@@ -24,9 +24,9 @@ installHandlers cenv = do
   let accountIdField' = mkFieldAccessor accountIdField $ model cenv
 
   pincodeEntry <- fmap entryTextReactive $ preferencesPincodeEntry $ ui $ view cenv
-  let pincodeField'  = mkFieldAccessor pincodeField $ model cenv
+  let pincodeField' = mkFieldAccessor pincodeField $ model cenv
 
   -- We establish the equations (in this case, from model to view)
-  senderEntry    =:= (senderField' `liftRW` involution reverse)
+  senderEntry    =:= senderField'
   accountIdEntry =:= accountIdField'
   pincodeEntry   =:= pincodeField'
