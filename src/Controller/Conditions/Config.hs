@@ -2,14 +2,12 @@ module Controller.Conditions.Config where
 
 import Hails.MVC.Controller.Conditions.Config
 import CombinedEnvironment
--- import Model.ProtectedModel
 
 installHandlers :: CEnv -> IO()
 installHandlers cenv = do
-  onEvent pm Initialised      $ defaultRead  myConfigIO app cenv
-  onEvent pm SenderChanged    $ defaultWrite myConfigIO app cenv
-  onEvent pm AccountIdChanged $ defaultWrite myConfigIO app cenv
-  onEvent pm PincodeChanged   $ defaultWrite myConfigIO app cenv
+  onEvent pm Initialised $ defaultRead  myConfigIO app cenv
+  onEvents pm [ SenderChanged, AccountIdChanged, PincodeChanged ] $
+    defaultWrite myConfigIO app cenv
  where pm  = model cenv
        app = "diamondcard-sms"
 
