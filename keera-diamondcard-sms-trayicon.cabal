@@ -40,7 +40,8 @@ Category:            Text
 
 Build-type:          Custom
 
-Data-files: Interface.glade
+Data-files: data/Interface.glade
+            data/*.png
 
 -- Extra files to be distributed with the package, such as examples or
 -- a README.

@@ -18,7 +18,7 @@ import Graphics.UI.Gtk
 -- Internal imports
 import Hails.MVC.View.Gtk.Builder           as HailsBuilder
 import Graphics.UI.Gtk.Extra.BuilderTH
-import Paths_keera_diamondcard_sms_trayicon
+import Paths
 
 -- | Returns a builder from which the objects in this part of the
 -- interface can be accessed.
