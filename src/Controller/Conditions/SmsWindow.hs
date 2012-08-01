@@ -8,11 +8,14 @@ import Graphics.UI.Gtk
 
 import CombinedEnvironment
 
+-- | Detects when the user activates the status icon
 installHandlers :: CEnv -> IO()
 installHandlers cenv = void $ do
  icon <- trayIcon $ uiBuilder $ view cenv
  icon `on` statusIconActivate $ condition cenv
 
+-- | Shows the window in the appropriate position or hides it, depending on its
+-- current status
 condition :: CEnv -> IO()
 condition cenv = postGUIAsync $ do
 

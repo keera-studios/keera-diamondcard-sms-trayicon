@@ -1,3 +1,9 @@
+-- | The send button is enabled only when the text and the phone number
+-- fulfill certain conditions.
+--
+-- The conditions are: message length is <= 160 characters, the number is at
+-- least 6 digits long and has the correct format (doesn't begin with a 0, does
+-- not contain letters, etc).
 module Controller.Conditions.CanSend where
 
 import Control.Monad
@@ -6,22 +12,32 @@ import Graphics.UI.Gtk.Entry.FormatEntry
 
 import CombinedEnvironment
 
+-- | Detects changes to the text fields and updates the send button's
+-- sensitive status
 installHandlers :: CEnv -> IO()
 installHandlers cenv = void $ do
- msgEntry <- messageEntry $ uiBuilder $ view cenv
- let destEntry = destinationEntry $ view cenv
-
- msgEntry `on` editableChanged $ condition cenv
- destEntry `on` editableChanged $ condition cenv
+  -- Obtain elements from the view
+  msgEntry <- messageEntry $ uiBuilder $ view cenv
+  let destEntry = destinationEntry $ view cenv
  
- send <- sendBtn $ uiBuilder $ view cenv
- widgetSetSensitive send False
+  -- Install handlers
+  msgEntry `on` editableChanged $ condition cenv
+  destEntry `on` editableChanged $ condition cenv
+  
+  -- Make button initially disabled
+  send <- sendBtn $ uiBuilder $ view cenv
+  widgetSetSensitive send False
 
+-- | Determines whether the entries have the proper format and updates the
+-- sensibility of the send button.
 condition :: CEnv -> IO()
 condition cenv = postGUIAsync $ void $ do
+
+  -- Obtain elements from the view
   msgEntry <- messageEntry $ uiBuilder $ view cenv
   let destEntry = destinationEntry $ view cenv
 
+  -- Determine whether the format is correct for both of them
   msg <- get msgEntry entryText
   let msgOk = length msg <= 160
 
@@ -30,5 +46,6 @@ condition cenv = postGUIAsync $ void $ do
   let numOk2 = length num >= 6
       numOk  = numOk1 && numOk2
 
+  -- Update the button's sensibility
   send <- sendBtn $ uiBuilder $ view cenv
   widgetSetSensitive send (msgOk && numOk)

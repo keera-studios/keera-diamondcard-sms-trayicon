@@ -12,7 +12,6 @@ import CombinedEnvironment
 import Graphics.UI.Gtk.Reactive
 import Data.ReactiveValue
 import Hails.MVC.Model.ProtectedModel.Reactive
-import Hails.MVC.View.GladeView
 
 installHandlers :: CEnv -> IO()
 installHandlers cenv = do
