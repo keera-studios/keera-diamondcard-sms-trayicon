@@ -24,22 +24,3 @@ hailsConfigure (gpd, info) flags = do
   runProgramInvocation verbosity $ simpleProgramInvocation "hails" ["--init", "--output-dir=src"]
   (confHook simpleUserHooks) (gpd, info) flags 
  where verbosity = fromFlag $ configVerbosity flags
-
--- ppXpp :: BuildInfo -> LocalBuildInfo -> PreProcessor 
--- ppXpp build local =
---    PreProcessor {
---      platformIndependent = True,
---      runPreProcessor = mkSimplePreProcessor $ \inFile outFile verbosity ->
---        do info verbosity (inFile++" is being preprocessed to "++outFile)
---           let hscFile = replaceExtension inFile "hsc"
---           runSimplePreProcessor (ppCpp build local) inFile  hscFile verbosity
---           handle <- openFile hscFile ReadMode
---           source <- sGetContents handle
---           hClose handle
---           let newsource = unlines $ process $ lines source
---           writeFile hscFile newsource
---           runSimplePreProcessor (ppHsc2hs build local) hscFile outFile verbosity
---           removeFile hscFile
---           return ()
---      }
--- 
