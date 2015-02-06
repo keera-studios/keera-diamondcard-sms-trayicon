@@ -10,15 +10,15 @@
 -- type of the element from the glade file (and helds us avoid having
 -- to provide the second string).
 --
-module View.MainWindow.Objects where
+module View.Objects where
 
 -- External imports
 import Graphics.UI.Gtk
 
 -- Internal imports
-import Hails.Graphics.UI.Gtk.Builder           as HailsBuilder
-import Hails.Graphics.UI.Gtk.THBuilderAccessor
-import Paths_keera_diamondcard_sms_trayicon
+import Hails.MVC.View.Gtk.Builder           as HailsBuilder
+import Graphics.UI.Gtk.Extra.BuilderTH
+import Paths
 
 -- | Returns a builder from which the objects in this part of the
 -- interface can be accessed.
@@ -30,7 +30,7 @@ gtkBuilderAccessor "mainWindow"                "Window"
 gtkBuilderAccessor "trayIcon"                  "StatusIcon"
 
 -- | Message data
-gtkBuilderAccessor "destinationEntry"          "Entry"
+-- gtkBuilderAccessor "destinationEntry"          "Entry"
 gtkBuilderAccessor "messageEntry"              "Entry"
 
 -- | Send button
@@ -46,3 +46,6 @@ gtkBuilderAccessor "preferencesDialog"         "Dialog"
 gtkBuilderAccessor "preferencesAccountIDEntry" "Entry"
 gtkBuilderAccessor "preferencesPincodeEntry"   "Entry"
 gtkBuilderAccessor "preferencesSenderEntry"    "Entry"
+
+gtkBuilderAccessor "destinationAlign"          "Alignment"
+gtkBuilderAccessor "infoLbl"                   "Label"

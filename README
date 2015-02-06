@@ -30,8 +30,28 @@ or if it sets your house on fire. This is work in progress.
 *** COMPILATION ***
 
 Dependencies:
-* hails (http://github.com/ivanperez-keera/keera-hails)
+* gtk-helpers (http://github.com/keera-studios/gtk-helpers)
+* hails-reactivevalues (http://github.com/keera-studios/hails-reactivevalues)
+* hails-reactive-gtk (http://github.com/keera-studios/hails-reactive-gtk)
+* hails-mvc-model-protectedmodels (http://github.com/keera-studios/hails-mvc-model-protectedmodels)
+* hails-mvc-view (http://github.com/keera-studios/hails-mvc-view)
+* hails-mvc-view-gtk (http://github.com/keera-studios/hails-mvc-view-gtk)
+* hails-mvc-solutions-config (http://github.com/keera-studios/hails-mvc-solutions-config)
+* hails-mvc-environment-gtk (http://github.com/keera-studios/hails-mvc-environment-gtk)
 * keera-network-sms-diamondcard (http://github.com/ivanperez-keera/keera-network-sms-diamondcard)
+
+Do not despair. If you have access to a bash shell, just copy this readme file
+to a temporary directory. The following code *SHOULD* install all the dependencies.
+
+Note: use with care. If something doesn't work, please let me know so that I can fix it ASAP.
+
+for i in $(grep -oe 'http://github.com/[^)]\+' README); do \
+  wget $i/tarball/master -O $(basename $i).tar.gz ; \
+  tar -zxvpf $(basename $i).tar.gz ; \
+  cd $(basename $(dirname $i))-$(basename $i)-* ; \
+  cabal install ; \
+  cd .. ; \
+done
 
 Other dependencies will be installed automatically by cabal.
 

@@ -1,3 +1,4 @@
+-- | Send the current message to the currently selected phone number
 module Controller.Conditions.Send where
 
 import Control.Concurrent
@@ -7,17 +8,16 @@ import Network.SMS.DiamondCard
 
 import CombinedEnvironment
 import Model.Model
--- import Model.ProtectedModel
--- import View
--- import View.MainWindow.Objects
 
+-- | Send when the send button is pressed
 installHandlers :: CEnv -> IO()
 installHandlers cenv = void $ do
  send <- sendBtn $ uiBuilder $ view cenv
  send `onClicked` condition cenv
 
+-- | Send the message
 condition :: CEnv -> IO()
-condition cenv = onViewAsync $ void $ do
+condition cenv = postGUIAsync $ void $ do
 
   -- Hide the window if it's shown
   mw <- mainWindow $ uiBuilder $ view cenv
@@ -28,16 +28,20 @@ condition cenv = onViewAsync $ void $ do
   forkIO $ do 
     let pm = model cenv
 
+    -- Update model status
     setStatus pm StatusSending
 
+    -- Get necessary fields from model
     accountId <- getAccountId pm
     pincode   <- getPincode pm
     message   <- getMessage pm
     from      <- getSender pm
     to        <- getDestination pm
 
+    -- Send and get result
     rs <- sendSMS accountId pincode message from [to]     
                  
+    -- Update model with result of sending
     case rs of
       SMSApparentlySent -> setStatus pm StatusSentOk
       SMSNotSent result -> setStatus pm StatusSentWrong

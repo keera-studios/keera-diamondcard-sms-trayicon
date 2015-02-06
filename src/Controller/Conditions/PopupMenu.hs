@@ -7,14 +7,13 @@ import Graphics.UI.Gtk
 
 -- Internal imports
 import CombinedEnvironment
--- import View
--- import View.MainWindow.Objects
 
 installHandlers :: CEnv -> IO()
 installHandlers cenv = void $ do
   icon <- trayIcon $ uiBuilder $ view cenv
   icon `on` statusIconPopupMenu $ condition cenv
 
+-- | Presents the popup menu, hiding the sms window if necessary
 condition :: CEnv -> Maybe MouseButton -> TimeStamp -> IO()
 condition cenv m t = do
   let ui = uiBuilder $ view cenv

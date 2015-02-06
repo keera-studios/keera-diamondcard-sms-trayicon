@@ -5,21 +5,21 @@
 -- model's destination field
 module Controller.Conditions.Message where
 
--- import CombinedEnvironment
--- import Model.ProtectedModel
--- import View.MainWindow.Objects
--- import qualified Graphics.UI.Simplify.EntryBasic as Extra
-
 import CombinedEnvironment
+import Data.ReactiveValue
 import Graphics.UI.Gtk.Reactive
--- import Model.ProtectedModel
--- import View.MainWindow.Objects
+import Hails.MVC.Model.ProtectedModel.Reactive
 
 installHandlers :: CEnv -> IO()
 installHandlers cenv = do
-  messageEntry     <- cenvReactiveEntry messageEntry     cenv
-  destinationEntry <- cenvReactiveEntry destinationEntry cenv
-  installConditions cenv
-    [ messageEntry     =:= messageField
-    , destinationEntry =:= destinationField
-    ]
+  -- View
+  messageEntryText     <- fmap entryTextReactive $ messageEntry $ ui $ view cenv
+  let destinationEntryText = entryTextReactive $ destinationEntry $ view cenv
+
+  -- Model
+  let messageField'     = mkFieldAccessor messageField $ model cenv
+      destinationField' = mkFieldAccessor destinationField $ model cenv
+
+  -- Conditions
+  messageField'     =:= messageEntryText
+  destinationField' =:= destinationEntryText

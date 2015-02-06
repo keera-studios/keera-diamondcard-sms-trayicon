@@ -1,21 +1,25 @@
+-- | Read and write the configuration to a config file. The file is located in
+-- the $HOME dir in linux, and the application data directory in windows.
 module Controller.Conditions.Config where
 
 import Hails.MVC.Controller.Conditions.Config
 import CombinedEnvironment
--- import Model.ProtectedModel
 
+-- | Reads the config when the program starts, saves it when the configuration
+-- is changed.
 installHandlers :: CEnv -> IO()
 installHandlers cenv = do
-  onEvent pm Initialised      $ defaultRead  myConfigIO app cenv
-  onEvent pm SenderChanged    $ defaultWrite myConfigIO app cenv
-  onEvent pm AccountIdChanged $ defaultWrite myConfigIO app cenv
-  onEvent pm PincodeChanged   $ defaultWrite myConfigIO app cenv
+  onEvent pm Initialised $ defaultRead  myConfigIO app cenv
+  onEvents pm [ SenderChanged, AccountIdChanged, PincodeChanged ] $
+    defaultWrite myConfigIO app cenv
  where pm  = model cenv
        app = "diamondcard-sms"
 
+-- Contains the config reader/writer
 myConfigIO :: ConfigIO CEnv
 myConfigIO = (myConfigRead, myConfigShow)
 
+-- | Reads a config from a String
 myConfigRead :: Maybe String -> CEnv -> IO()
 myConfigRead Nothing  _    = return ()
 myConfigRead (Just c) cenv = do
@@ -25,6 +29,7 @@ myConfigRead (Just c) cenv = do
   where pm = model cenv
         [((acc, pin, from), _)] = reads c
 
+-- | Writes the config to a string
 myConfigShow :: CEnv -> IO String
 myConfigShow cenv = do
    acc  <- getAccountId pm
