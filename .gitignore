@@ -6,13 +6,9 @@ cabal-dev
 *.chs.h
 .virthualenv
 src/CombinedEnvironment.hs
-src/Controller.hs
 src/Main.hs
 src/Model/ProtectedModel.hs
 src/Model/ProtectedModel/ProtectedModelInternals.hs
 src/Model/ReactiveModel.hs
 src/Model/ReactiveModel/ReactiveModelInternals.hs
 src/Paths.hs
-src/Paths/
-src/View.hs
-src/View/Objects.hs
