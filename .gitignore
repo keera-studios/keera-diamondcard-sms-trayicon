@@ -12,3 +12,5 @@ src/Model/ProtectedModel/ProtectedModelInternals.hs
 src/Model/ReactiveModel.hs
 src/Model/ReactiveModel/ReactiveModelInternals.hs
 src/Paths.hs
+.cabal-sandbox/
+cabal.sandbox.config
