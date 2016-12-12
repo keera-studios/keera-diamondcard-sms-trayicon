@@ -19,11 +19,11 @@ installHandlers cenv = void $ do
   -- Obtain elements from the view
   msgEntry <- messageEntry $ uiBuilder $ view cenv
   let destEntry = destinationEntry $ view cenv
- 
+
   -- Install handlers
   msgEntry `on` editableChanged $ condition cenv
   destEntry `on` editableChanged $ condition cenv
-  
+
   -- Make button initially disabled
   send <- sendBtn $ uiBuilder $ view cenv
   widgetSetSensitive send False
@@ -39,11 +39,11 @@ condition cenv = postGUIAsync $ void $ do
 
   -- Determine whether the format is correct for both of them
   msg <- get msgEntry entryText
-  let msgOk = length msg <= 160
+  let msgOk = length (msg :: String) <= 160
 
   num <- get destEntry entryText
   numOk1 <- formatEntryHasCorrectFormat destEntry
-  let numOk2 = length num >= 6
+  let numOk2 = length (num :: String) >= 6
       numOk  = numOk1 && numOk2
 
   -- Update the button's sensibility

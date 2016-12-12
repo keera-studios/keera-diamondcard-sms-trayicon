@@ -10,8 +10,8 @@ import CombinedEnvironment
 installHandlers :: CEnv -> IO()
 installHandlers cenv = do
   onEvent pm Initialised $ defaultRead  myConfigIO app cenv
-  onEvents pm [ SenderChanged, AccountIdChanged, PincodeChanged ] $
-    defaultWrite myConfigIO app cenv
+  mapM_ (\e -> onEvent pm e (defaultWrite myConfigIO app cenv))
+    [ SenderChanged, AccountIdChanged, PincodeChanged ]
  where pm  = model cenv
        app = "diamondcard-sms"
 

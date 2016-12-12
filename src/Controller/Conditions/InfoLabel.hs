@@ -22,7 +22,7 @@ condition cenv = postGUIAsync $ void $ do
   -- Calculate current msg length
   msgEntry <- messageEntry $ uiBuilder $ view cenv
   msg <- get msgEntry entryText
-  let len = length msg
+  let len = length (msg :: String)
 
   -- Update label with new text
   let label = show (160 - len) ++ " characters left"
