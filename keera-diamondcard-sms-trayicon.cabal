@@ -12,7 +12,7 @@ Version:             0.0.4
 Synopsis:            A program to send SMS's that docks in the system taskbar
 
 -- A longer description of the package.
--- Description:         
+-- Description:
 
 -- URL for the project homepage or repository.
 Homepage:            http://keera.es/blog/community/
@@ -31,7 +31,7 @@ Author:              Ivan Perez
 Maintainer:          ivan.perez@keera.es
 
 -- A copyright notice.
--- Copyright:           
+-- Copyright:
 
 -- Stability of the pakcage (experimental, provisional, stable...)
 Stability:           Provisional
@@ -45,7 +45,7 @@ Data-files: data/Interface.glade
 
 -- Extra files to be distributed with the package, such as examples or
 -- a README.
--- Extra-source-files:  
+-- Extra-source-files:
 
 -- Constraint on the version of Cabal needed to build this package.
 Cabal-version:       >=1.2
@@ -55,14 +55,14 @@ Executable keera-diamondcard-sms-trayicon
   -- .hs or .lhs file containing the Main module.
   Main-is: Main.hs
   hs-source-dirs: src/
-  
+
   if os(windows)
    ghc-options: -threaded -Wall -fno-warn-unused-do-bind -O2 -optl-mwindows
-  else 
+  else
    ghc-options: -threaded -Wall -fno-warn-unused-do-bind -O2
 
   -- Packages needed in order to build this package.
-  -- Build-depends:       
+  -- Build-depends:
   Build-depends: base >= 4.0,
                  -- Comm
                  mtl,
@@ -75,19 +75,18 @@ Executable keera-diamondcard-sms-trayicon
                  glade,
                  gtk,
                  glib,
-                 
+
                  -- File access
                  directory,
                  filepath,
 
                  -- Keera packages
                  gtk-helpers >= 0.0.4,
-                 hails-reactivevalues,
-                 hails-reactive-gtk,
-                 hails-mvc-environment-gtk,
-                 hails-mvc-model-protectedmodel,
-                 hails-mvc-solutions-config,
-                 hails-mvc-view, 
-                 hails-mvc-view-gtk, 
-                 -- hails                         >= 0.0.2,
+                 keera-hails-reactivevalues,
+                 keera-hails-reactive-gtk,
+                 keera-hails-mvc-environment-gtk,
+                 keera-hails-mvc-model-protectedmodel,
+                 keera-hails-mvc-solutions-config,
+                 keera-hails-mvc-view,
+                 keera-hails-mvc-view-gtk,
                  keera-network-sms-diamondcard >= 0.0.2
