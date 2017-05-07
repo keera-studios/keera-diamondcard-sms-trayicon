@@ -5,12 +5,5 @@ cabal-dev
 *.chi
 *.chs.h
 .virthualenv
-src/CombinedEnvironment.hs
-src/Main.hs
-src/Model/ProtectedModel.hs
-src/Model/ProtectedModel/ProtectedModelInternals.hs
-src/Model/ReactiveModel.hs
-src/Model/ReactiveModel/ReactiveModelInternals.hs
-src/Paths.hs
 .cabal-sandbox/
 cabal.sandbox.config
