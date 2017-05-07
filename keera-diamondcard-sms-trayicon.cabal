@@ -72,7 +72,7 @@ Executable keera-diamondcard-sms-trayicon
                  template-haskell,
 
                  -- UI
-                 glade,
+                 -- glade,
                  gtk,
                  glib,
 
