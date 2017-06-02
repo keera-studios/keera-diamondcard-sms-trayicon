@@ -48,7 +48,7 @@ Data-files: data/Interface.glade
 -- Extra-source-files:
 
 -- Constraint on the version of Cabal needed to build this package.
-Cabal-version:       >=1.2
+cabal-version: >= 1.10
 
 
 Executable keera-diamondcard-sms-trayicon
