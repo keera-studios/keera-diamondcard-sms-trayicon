@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Keera SMS DiamondCard tray icon
+Comment=Launch Keera SMS DiamondCard tray icon
+Exec=keera-diamondcard-sms-trayicon
+Terminal=false
+Type=Application
+Icon=/usr/share/keera-diamondcard-sms-trayicon/data/green-mail-send-icon.png
+StartupNotify=true
+Categories=Utility;
