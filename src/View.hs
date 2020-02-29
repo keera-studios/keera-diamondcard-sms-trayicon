@@ -1,5 +1,8 @@
 -- | Contains basic operations related to the GUI
 --
+-- Copyright   : (C) Keera Studios Ltd, 2015
+-- License     : BSD3
+-- Maintainer  : support@keera.co.uk
 module View ( module View
             , module Exported
             )

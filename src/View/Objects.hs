@@ -10,6 +10,9 @@
 -- type of the element from the glade file (and helds us avoid having
 -- to provide the second string).
 --
+-- Copyright   : (C) Keera Studios Ltd, 2015
+-- License     : BSD3
+-- Maintainer  : support@keera.co.uk
 module View.Objects where
 
 -- External imports

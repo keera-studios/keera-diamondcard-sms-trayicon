@@ -1,5 +1,9 @@
 -- | Read and write the configuration to a config file. The file is located in
 -- the $HOME dir in linux, and the application data directory in windows.
+--
+-- Copyright   : (C) Keera Studios Ltd, 2015
+-- License     : BSD3
+-- Maintainer  : support@keera.co.uk
 module Controller.Conditions.Config where
 
 import Hails.MVC.Controller.Conditions.Config

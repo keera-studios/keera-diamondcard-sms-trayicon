@@ -1,11 +1,15 @@
 {-# LANGUAGE TemplateHaskell #-}
 -- | This module contains the reactive fields that the ReactiveModel lifts
 -- from the BasicModel.
+--
+-- Copyright   : (C) Keera Studios Ltd, 2015
+-- License     : BSD3
+-- Maintainer  : support@keera.co.uk
 module Model.ReactiveModel.ReactiveFields where
 
 -- Semi-Internal imports
 import qualified Hails.MVC.Model.ReactiveFields as RFs
-import Hails.MVC.Model.ReactiveFields 
+import Hails.MVC.Model.ReactiveFields
          (fieldGetter, fieldSetter, preTrue)
 import Hails.MVC.Model.THFields
 -- import Hails.MVC.Model.ReactiveModel

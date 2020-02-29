@@ -6,6 +6,10 @@
 -- model's pincode field
 -- * The text entry for the Sender field holds the same value as the
 -- model's sender field
+--
+-- Copyright   : (C) Keera Studios Ltd, 2015
+-- License     : BSD3
+-- Maintainer  : support@keera.co.uk
 module Controller.Conditions.Preferences where
 
 import CombinedEnvironment
