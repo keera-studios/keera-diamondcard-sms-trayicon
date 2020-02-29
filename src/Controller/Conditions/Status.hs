@@ -2,6 +2,10 @@
 -- program status.
 --
 --  Resets the program status when the user clicks on the icon.
+--
+-- Copyright   : (C) Keera Studios Ltd, 2015
+-- License     : BSD3
+-- Maintainer  : support@keera.co.uk
 module Controller.Conditions.Status where
 
 import Control.Arrow
@@ -28,7 +32,7 @@ installHandlers cenv = void $ do
 condition :: CEnv -> IO()
 condition cenv = postGUIAsync $ do
   let (vw, pm) = (view &&& model) cenv
-  icon     <- trayIcon $ uiBuilder vw 
+  icon     <- trayIcon $ uiBuilder vw
   status   <- getStatus pm
 
   let stView = lookup status statusImage
@@ -42,7 +46,7 @@ conditionClick cenv = postGUIAsync $ void $ do
   let pm = model cenv
   status <- getStatus pm
 
-  when (status `elem` [ StatusSentOk, StatusSentWrong ]) $ 
+  when (status `elem` [ StatusSentOk, StatusSentWrong ]) $
     setStatus pm StatusIdle
 
 -- | A table that associates an icon and a tooltip to each possible status.

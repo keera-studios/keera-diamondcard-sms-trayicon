@@ -1,4 +1,8 @@
 -- | Determines whether phone numbers have the right format
+--
+-- Copyright   : (C) Keera Studios Ltd, 2015
+-- License     : BSD3
+-- Maintainer  : support@keera.co.uk
 module Controller.Conditions.NumberFormat where
 
 import Data.Char (isDigit)

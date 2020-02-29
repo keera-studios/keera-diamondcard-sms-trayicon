@@ -4,6 +4,10 @@
 -- The conditions are: message length is <= 160 characters, the number is at
 -- least 6 digits long and has the correct format (doesn't begin with a 0, does
 -- not contain letters, etc).
+--
+-- Copyright   : (C) Keera Studios Ltd, 2015
+-- License     : BSD3
+-- Maintainer  : support@keera.co.uk
 module Controller.Conditions.CanSend where
 
 import Control.Monad

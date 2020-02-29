@@ -1,4 +1,8 @@
 -- | Toggles window visibility when the user clicks on the status icon.
+--
+-- Copyright   : (C) Keera Studios Ltd, 2015
+-- License     : BSD3
+-- Maintainer  : support@keera.co.uk
 module Controller.Conditions.SmsWindow where
 
 import Control.Monad
@@ -67,7 +71,7 @@ getWindowPosition win rect orient screen
  -- The icon is above
  | otherwise -- orient == OrientationVertical
  = (rectX + rectW, adjustToSize rectY winH screenH)
-  
+
   where (Rectangle rectX rectY rectW rectH) = rect
         (winW, winH)                        = win
         (screenW, screenH)                  = screen

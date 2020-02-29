@@ -1,4 +1,8 @@
 -- | Send the current message to the currently selected phone number
+--
+-- Copyright   : (C) Keera Studios Ltd, 2015
+-- License     : BSD3
+-- Maintainer  : support@keera.co.uk
 module Controller.Conditions.Send where
 
 import Control.Concurrent
@@ -25,7 +29,7 @@ condition cenv = postGUIAsync $ void $ do
   when isWindowShown $ widgetHide mw
 
   -- Send the message asynchronously
-  forkIO $ do 
+  forkIO $ do
     let pm = model cenv
 
     -- Update model status
@@ -39,8 +43,8 @@ condition cenv = postGUIAsync $ void $ do
     to        <- getDestination pm
 
     -- Send and get result
-    rs <- sendSMS accountId pincode message from [to]     
-                 
+    rs <- sendSMS accountId pincode message from [to]
+
     -- Update model with result of sending
     case rs of
       SMSApparentlySent -> setStatus pm StatusSentOk

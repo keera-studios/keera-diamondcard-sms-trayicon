@@ -1,4 +1,8 @@
 -- | Hides the preferences dialog when the user closes it
+--
+-- Copyright   : (C) Keera Studios Ltd, 2015
+-- License     : BSD3
+-- Maintainer  : support@keera.co.uk
 module Controller.Conditions.PreferencesDialogDestroy where
 
 import Control.Monad

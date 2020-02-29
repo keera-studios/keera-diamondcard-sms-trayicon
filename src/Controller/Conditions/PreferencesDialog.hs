@@ -1,6 +1,10 @@
 -- | Shows the preferences dialog when the user requests it.
--- 
+--
 -- (View => View)
+--
+-- Copyright   : (C) Keera Studios Ltd, 2015
+-- License     : BSD3
+-- Maintainer  : support@keera.co.uk
 module Controller.Conditions.PreferencesDialog where
 
 import Control.Monad

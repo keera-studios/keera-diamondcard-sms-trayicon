@@ -1,6 +1,10 @@
 -- | Updates the label with the number of remaining characters
 --
 -- View => View
+--
+-- Copyright   : (C) Keera Studios Ltd, 2015
+-- License     : BSD3
+-- Maintainer  : support@keera.co.uk
 module Controller.Conditions.InfoLabel where
 
 import Control.Monad
