@@ -63,8 +63,8 @@ executable keera-diamondcard-sms-trayicon
     src/
 
   if os(windows)
-   ghc-options:
-     -threaded -Wall -fno-warn-unused-do-bind -O2 -optl-mwindows
+    ghc-options:
+      -threaded -Wall -fno-warn-unused-do-bind -O2 -optl-mwindows
   else
-   ghc-options:
-     -threaded -Wall -fno-warn-unused-do-bind -O2
+    ghc-options:
+      -threaded -Wall -fno-warn-unused-do-bind -O2
