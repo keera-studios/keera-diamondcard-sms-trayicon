@@ -28,7 +28,7 @@ executable keera-diamondcard-sms-trayicon
     Main.hs
 
   build-depends:
-      base >= 4.0
+      base                                  >= 4.0
 
       -- Comm
     , mtl
@@ -49,7 +49,7 @@ executable keera-diamondcard-sms-trayicon
     , filepath
 
       -- Keera packages
-    , gtk-helpers >= 0.0.4
+    , gtk-helpers                           >= 0.0.4
     , keera-hails-reactivevalues
     , keera-hails-reactive-gtk
     , keera-hails-mvc-environment-gtk
@@ -57,7 +57,7 @@ executable keera-diamondcard-sms-trayicon
     , keera-hails-mvc-solutions-config
     , keera-hails-mvc-view
     , keera-hails-mvc-view-gtk
-    , keera-network-sms-diamondcard >= 0.0.2
+    , keera-network-sms-diamondcard         >= 0.0.2
 
   hs-source-dirs:
     src/
