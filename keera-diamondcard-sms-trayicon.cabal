@@ -24,39 +24,44 @@ stability:           Provisional
 
 executable keera-diamondcard-sms-trayicon
 
-  main-is: Main.hs
+  main-is:
+    Main.hs
 
-  build-depends: base >= 4.0,
-                 -- Comm
-                 mtl,
-                 -- Advanced monad control
-                 IfElse,
-                 -- TH
-                 template-haskell,
+  build-depends:
+    base >= 4.0,
+    -- Comm
+    mtl,
+    -- Advanced monad control
+    IfElse,
+    -- TH
+    template-haskell,
 
-                 -- UI
-                 -- glade,
-                 gtk,
-                 glib,
+    -- UI
+    -- glade,
+    gtk,
+    glib,
 
-                 -- File access
-                 directory,
-                 filepath,
+    -- File access
+    directory,
+    filepath,
 
-                 -- Keera packages
-                 gtk-helpers >= 0.0.4,
-                 keera-hails-reactivevalues,
-                 keera-hails-reactive-gtk,
-                 keera-hails-mvc-environment-gtk,
-                 keera-hails-mvc-model-protectedmodel,
-                 keera-hails-mvc-solutions-config,
-                 keera-hails-mvc-view,
-                 keera-hails-mvc-view-gtk,
-                 keera-network-sms-diamondcard >= 0.0.2
+    -- Keera packages
+    gtk-helpers >= 0.0.4,
+    keera-hails-reactivevalues,
+    keera-hails-reactive-gtk,
+    keera-hails-mvc-environment-gtk,
+    keera-hails-mvc-model-protectedmodel,
+    keera-hails-mvc-solutions-config,
+    keera-hails-mvc-view,
+    keera-hails-mvc-view-gtk,
+    keera-network-sms-diamondcard >= 0.0.2
 
-  hs-source-dirs: src/
+  hs-source-dirs:
+    src/
 
   if os(windows)
-   ghc-options: -threaded -Wall -fno-warn-unused-do-bind -O2 -optl-mwindows
+   ghc-options:
+     -threaded -Wall -fno-warn-unused-do-bind -O2 -optl-mwindows
   else
-   ghc-options: -threaded -Wall -fno-warn-unused-do-bind -O2
+   ghc-options:
+     -threaded -Wall -fno-warn-unused-do-bind -O2
