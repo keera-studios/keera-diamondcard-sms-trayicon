@@ -28,33 +28,36 @@ executable keera-diamondcard-sms-trayicon
     Main.hs
 
   build-depends:
-    base >= 4.0,
-    -- Comm
-    mtl,
-    -- Advanced monad control
-    IfElse,
-    -- TH
-    template-haskell,
+      base >= 4.0
 
-    -- UI
-    -- glade,
-    gtk,
-    glib,
+      -- Comm
+    , mtl
 
-    -- File access
-    directory,
-    filepath,
+      -- Advanced monad control
+    , IfElse
 
-    -- Keera packages
-    gtk-helpers >= 0.0.4,
-    keera-hails-reactivevalues,
-    keera-hails-reactive-gtk,
-    keera-hails-mvc-environment-gtk,
-    keera-hails-mvc-model-protectedmodel,
-    keera-hails-mvc-solutions-config,
-    keera-hails-mvc-view,
-    keera-hails-mvc-view-gtk,
-    keera-network-sms-diamondcard >= 0.0.2
+      -- TH
+    , template-haskell
+
+      -- UI
+      -- glade
+    , gtk
+    , glib
+
+      -- File access
+    , directory
+    , filepath
+
+      -- Keera packages
+    , gtk-helpers >= 0.0.4
+    , keera-hails-reactivevalues
+    , keera-hails-reactive-gtk
+    , keera-hails-mvc-environment-gtk
+    , keera-hails-mvc-model-protectedmodel
+    , keera-hails-mvc-solutions-config
+    , keera-hails-mvc-view
+    , keera-hails-mvc-view-gtk
+    , keera-network-sms-diamondcard >= 0.0.2
 
   hs-source-dirs:
     src/
