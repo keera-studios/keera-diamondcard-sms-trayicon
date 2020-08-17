@@ -2,36 +2,36 @@
 -- License     : BSD3
 -- Maintainer  : support@keera.co.uk
 
-Name:                keera-diamondcard-sms-trayicon
+name:                keera-diamondcard-sms-trayicon
 
-Version:             0.1.1
+version:             0.1.1
 
-Synopsis:            Send SMS's from your system taskbar.
+synopsis:            Send SMS's from your system taskbar.
 
-Homepage:            http://keera.es/blog/community/
+homepage:            http://keera.es/blog/community/
 
-License:             OtherLicense
+license:             OtherLicense
 
-License-file:        LICENSE
+license-file:        LICENSE
 
-Author:              Ivan Perez
+author:              Ivan Perez
 
-Maintainer:          support@keera.co.uk
+maintainer:          support@keera.co.uk
 
-Stability:           Provisional
+stability:           Provisional
 
-Category:            Text
+category:            Text
 
-Build-type:          Simple
+build-type:          Simple
 
-Data-files: data/Interface.glade
+data-files: data/Interface.glade
             data/*.png
 
-Cabal-version:       >=1.2
+cabal-version:       >=1.2
 
 
-Executable keera-diamondcard-sms-trayicon
-  Main-is: Main.hs
+executable keera-diamondcard-sms-trayicon
+  main-is: Main.hs
   hs-source-dirs: src/
 
   if os(windows)
@@ -39,7 +39,7 @@ Executable keera-diamondcard-sms-trayicon
   else
    ghc-options: -threaded -Wall -fno-warn-unused-do-bind -O2
 
-  Build-depends: base >= 4.0,
+  build-depends: base >= 4.0,
                  -- Comm
                  mtl,
                  -- Advanced monad control
