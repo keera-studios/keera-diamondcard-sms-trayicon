@@ -2,32 +2,24 @@
 -- License     : BSD3
 -- Maintainer  : support@keera.co.uk
 
-name:                keera-diamondcard-sms-trayicon
-
-version:             0.1.1
-
-synopsis:            Send SMS's from your system taskbar.
-
-homepage:            http://keera.es/blog/community/
-
-license:             OtherLicense
-
-license-file:        LICENSE
-
-author:              Ivan Perez
-
-maintainer:          support@keera.co.uk
-
-stability:           Provisional
-
-category:            Text
-
+cabal-version:       >=1.2
 build-type:          Simple
 
-data-files: data/Interface.glade
-            data/*.png
-
-cabal-version:       >=1.2
+name:                keera-diamondcard-sms-trayicon
+version:             0.1.1
+author:              Ivan Perez
+maintainer:          support@keera.co.uk
+homepage:            http://keera.es/blog/community/
+license:             OtherLicense
+license-file:        LICENSE
+copyright:           (C) Keera Studios Ltd, 2015; (C) Ivan Perez, 2012
+category:            Text
+synopsis:            Send SMS's from your system taskbar.
+description:         Send SMS's from your system taskbar.
+data-files:
+  data/Interface.glade
+  data/*.png
+stability:           Provisional
 
 
 executable keera-diamondcard-sms-trayicon
