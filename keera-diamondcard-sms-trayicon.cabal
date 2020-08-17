@@ -23,6 +23,7 @@ stability:           Provisional
 
 
 executable keera-diamondcard-sms-trayicon
+
   main-is: Main.hs
 
   build-depends: base >= 4.0,
@@ -52,6 +53,7 @@ executable keera-diamondcard-sms-trayicon
                  keera-hails-mvc-view,
                  keera-hails-mvc-view-gtk,
                  keera-network-sms-diamondcard >= 0.0.2
+
   hs-source-dirs: src/
 
   if os(windows)
