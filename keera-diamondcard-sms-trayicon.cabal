@@ -30,25 +30,14 @@ executable keera-diamondcard-sms-trayicon
   build-depends:
       base                                  >= 4.0
 
-      -- Comm
-    , mtl
-
-      -- Advanced monad control
-    , IfElse
-
-      -- TH
-    , template-haskell
-
-      -- UI
-      -- glade
-    , gtk
-    , glib
-
-      -- File access
     , directory
     , filepath
+    , glib
+    , gtk
+    , IfElse
+    , mtl
+    , template-haskell
 
-      -- Keera packages
     , gtk-helpers                           >= 0.0.4
     , keera-hails-reactivevalues
     , keera-hails-reactive-gtk
