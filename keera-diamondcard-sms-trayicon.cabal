@@ -24,12 +24,6 @@ stability:           Provisional
 
 executable keera-diamondcard-sms-trayicon
   main-is: Main.hs
-  hs-source-dirs: src/
-
-  if os(windows)
-   ghc-options: -threaded -Wall -fno-warn-unused-do-bind -O2 -optl-mwindows
-  else
-   ghc-options: -threaded -Wall -fno-warn-unused-do-bind -O2
 
   build-depends: base >= 4.0,
                  -- Comm
@@ -58,3 +52,9 @@ executable keera-diamondcard-sms-trayicon
                  keera-hails-mvc-view,
                  keera-hails-mvc-view-gtk,
                  keera-network-sms-diamondcard >= 0.0.2
+  hs-source-dirs: src/
+
+  if os(windows)
+   ghc-options: -threaded -Wall -fno-warn-unused-do-bind -O2 -optl-mwindows
+  else
+   ghc-options: -threaded -Wall -fno-warn-unused-do-bind -O2
